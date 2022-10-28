@@ -1,0 +1,159 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul{
+    list-style: none; /*Eu removi as bolinhas do lado da minas listas. Estilo da lista é nenhum*/
+}
+
+body * { /*Todos os elementos do body*/
+    font-family: "Inter", sans-serif; /*"Sans-serif" significa sem serif*/
+    line-height: 160%; /**Altura da linha*/
+}
+
+body {
+    background-image: url(./assets/bg.jpg); /*Eu estou colocando uma imagem como background. Ela tem uma função que recebe o local onde está a imagem.*/
+    background-position: top center; /*Posicionamento do fundo*/
+    background-size: 100% auto; /*100% da largura da minha tela. Ele se ajusta ao tamanho da minha tela. A autura vai ficar automatica.*/ 
+    background-repeat: no-repeat; /* Serve pra não ficar repetindo backgrounds*/
+    background-color: #121214;
+}
+
+/*main * { O "*" é um seletor universal e tudo que estiver dentro do mains ele vai pegar
+    border: 1px solid red; Ele vai colocar uma borda para todos os elementos do main
+}*/
+
+header { /*O header não tem uma altura definida nele*/
+    margin-top: 32px;
+    height: 120px; /*O tamanho do header e o tamanho da imagem pra ele já iniciar com o tamanho certo */
+    /*text-align: center; Text-align funciona da seguinte forma. tudo que identificado como uma pripriedade de texto (img e identifaco como uma propriedade de texto) ele vai alina pra mim*/
+}
+
+header div {
+    width: 120px;
+    margin: auto; /*Como div não é identficado como uma propriedade de texto. Eu uso o "margin: auto" para alinhar */
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+    border-radius: 50%;
+    display: flex; /*Ele ta fazendo com que todos os elemento que estão dentro recebam a mesma propriedade*/
+    padding: 4px;
+    transition: transform .3s; /*Ele verifica se na div tem a propriedade tranform e ele escala ele em 0.3s*/
+}
+
+header div:hover{ /*Significa que quando você passar o mouse em cima dessa div ele vai executar as propriedades que estão dentro dele*/
+    transform: scale(1.1); /*Toda vez que eu passar o mouse em cima a escala dele vai ser de 1.1*/
+}
+
+header img{
+    width: 100%; /*Em relação a div que ela está dentro*/
+    border-radius: 50%;
+}
+
+main {
+    max-width: 580px; /*Estou falando que o main tem uma largura maxima de 580px todas as coisas que estão dentro dele vão tentar manter essa largura maxima*/
+    width: 90%; /*Esse 90% é relativo a minha tela. Isso quando a tela for menor que 580*/
+    margin: 32px auto; /*Ao colocar em automatico ele faz um cauculo automatico para as margens para ela se preencherem*/
+    display: grid; /*Estou usando o 'grid' que eu consigo para usar o gap e mantenho as minhas caixas que estão dentro da main uma embaixo da outra*/
+    gap: 24px;
+}
+
+section {
+    color: white;
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+    padding-top: 4px;
+    border-radius: 15px;
+}
+
+section div {
+    background-color: #2A2634;
+    padding: 32px;
+    padding-top: 24px;
+    border-radius: 8px;
+}
+
+section h2 { /*Quero que ele pegue todos os h2 que estão dentor de section*/
+    letter-spacing: -0.47px;
+}
+
+section p {
+    letter-spacing: -0.18px;
+    color: #A1A1AA;
+
+}
+
+section ul {
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+section ul li {
+    transition: transform .3s;
+}
+
+section ul li:hover{
+    transform: scale(1.1);
+}
+
+.game-list img{
+    width: 90px;
+    border-radius: 8px; /*Redondamento da borda*/
+}
+
+.streamers-list img{
+    border-radius: 50%;
+    width: 70px;
+    border: solid 1px #443E54;
+}
+
+
+/*Css Animation*/
+
+/*Primeiro eu preciso definir a animação*/
+
+header div {
+    animation: fromTop .7s backwards; /*Backwards é como se a div já começasse com as propriedades do from e depois do delay ele começa a animação*/
+    animation-delay: .3s;  /*O delay pra fazer a primeira animação*/
+}
+
+main section {
+    animation: fromBotton .7s backwards;
+}
+
+main section:nth-child(1){
+    animation-delay: 0;
+}
+
+main section:nth-child(2){
+    animation-delay: .4s;
+}
+
+main section:nth-child(3){
+    animation-delay: .8s;
+}
+
+@keyframes /*Serve pra gente dar o inicio para a nossa animação*/ fromTop /*Nome da animação*/ {
+    
+    from {
+        opacity: 0; /*Deixar ele começar sem nada*/
+        transform: translateY(-30px); /*Eu vou jogar o meu elemento 30px para cima*/
+    }
+            /*Ele vai fazer a animação de para*/
+    to{
+        opacity: 1;
+        transform: translateY(0); /*o eixo y e o de cima para baixo. Zero e a onde ele está */
+    }
+}
+
+@keyframes fromBotton {
+    from {
+        opacity: 0; /*Deixar ele começar sem nada*/
+        transform: translateX(-30px); /*Eu vou jogar o meu elemento 30px para cima*/
+    }
+            /*Ele vai fazer a animação de para*/
+    to{
+        opacity: 1;
+        transform: translateX(0); /*o eixo y e o de cima para baixo. Zero e a onde ele está */
+    }
+}
